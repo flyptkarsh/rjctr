@@ -2,7 +2,8 @@ Rails.application.routes.draw do
   
   #Users, SMS route 
   resources :users, :sms
-
+  
+  get '/twilio_test' => 'twilio#test'
   #Sessions 
   get '/login' => 'sessions#new'
   post '/sessions' => 'sessions#create'

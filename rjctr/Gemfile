@@ -32,6 +32,9 @@ gem 'bcrypt', '~> 3.1.7'
 # Get twilio-ruby from twilio.com/docs/ruby/install
 gem 'twilio-ruby'
 
+
+gem 'pry-rails'
+
 # Use unicorn as the app server
 # gem 'unicorn'
 
