@@ -5,3 +5,5 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+
+random = Reply.create([{ random: 'OMG I love Justin Bieber, I wish you were more like him!'}])
