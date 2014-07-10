@@ -9,15 +9,19 @@ class TwilioController < ApplicationController
 
 
 	def reply
-		body = params[:body]
-		message_type = {"hi" => "hello"}
+		body = params[:Body]
 
+		case body 
+		 when "hi"
+		 	message = "hello"
+		 when "hey"
+		 	message = "hello"
+		 when "yo"
+		 	message = "hello"
+		 else 
+		 	message = "me not worko"
+		 end 
 
-			if body == message_type["hi"]
-					message = "Hello"
-				else
-					message = "My Bieber fever is so bad today" 
-			end
 		twiml = Twilio::TwiML::Response.new do |r|
 			r.Message "#{message}"
 		end
