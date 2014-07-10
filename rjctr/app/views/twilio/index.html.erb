@@ -1,4 +1,8 @@
 <!-- Loop over messages and print out a property for each one -->
 <% @client.account.messages.list.each do |message| %>
-	<%= "#{ message.body}" %> 
+	<%= "#{message.from}" %> <br>
+	<%= "#{message.to}" %> <br>
+	<%= "#{message.body}" %> <br>
+	<hr>
+
 <% end %>

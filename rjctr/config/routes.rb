@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   resources :users, :twilio
 
   get '/twilio_reply' => 'twilio#reply'
+  get '/twilio' => 'twilio#index'
 
   #Sessions 
   get '/login' => 'sessions#new'
