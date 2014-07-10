@@ -3,14 +3,15 @@ Rails.application.routes.draw do
 
   root to: 'sessions#new'
 
-  resources :users, :twilio
+  resources :users
 
+  get '/twilio_process_sms' => 'twilio#process_sms'
   get '/twilio_reply' => 'twilio#reply'
   get '/twilio' => 'twilio#index'
 
   #Sessions 
   get '/login' => 'sessions#new'
-  post '/sessions' => 'sessions#create'
+  get '/sessions' => 'sessions#create'
   get '/logout' =>'sessions#destroy'
 
  

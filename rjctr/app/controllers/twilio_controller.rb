@@ -7,25 +7,20 @@ class TwilioController < ApplicationController
 		@client = Twilio::REST::Client.new account_sid, auth_token
 	end 
 
-	# def create
-	# 	@client = Twilio::REST::Client.new account_sid, auth_token
+
+	def reply
+		body = params[:body]
+		message_type = {"hi" => "hello"}
 
 
-	# end 
-
-	def reply 
-		session["counter"] ||= 0
-		sms_count = session["counter"]
-		
-		if sms_count == 13
-			message = "Fucking bitches making money!"
-		else
-			message = "Hello, thanks for message number #{sms_count + 1}"
-		end
+			if body == message_type["hi"]
+					message = "Hello"
+				else
+					message = "My Bieber fever is so bad today" 
+			end
 		twiml = Twilio::TwiML::Response.new do |r|
-		r.Sms message
-	end
-		session["counter"] += 1
+			r.Message "#{message}"
+		end
 		render text: twiml.text
 	end
 end
