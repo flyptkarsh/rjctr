@@ -81,4 +81,5 @@ test:
 production:
   <<: *default
   database: rjctr_production
+  username:
   password: <%= ENV['RJCTR_DATABASE_PASSWORD'] %>

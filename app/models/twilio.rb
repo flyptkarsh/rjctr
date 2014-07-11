@@ -1,4 +1,3 @@
-class Twilio 
-	
-	
+class Twilio < ActiveRecord::Base
+
 end
