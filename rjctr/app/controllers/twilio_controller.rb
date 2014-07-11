@@ -1,3 +1,4 @@
+require 'twilio-ruby' 
 class TwilioController < ApplicationController
 	
 	def log

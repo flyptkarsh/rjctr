@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+
 <head>
   <title>Rjctr</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
@@ -9,12 +10,16 @@
 <body>
 	<p>
 		<% if session[:current_user] %>
-			Welcome Back, <%= User.find(session[:current_user]).alias %>! 
-			<%= link_to 'See who is currently talking to Bieberfan', twilio_log_path %>
-			<%= link_to 'Log Out', logout_path %> 
+
+			<h1>Welcome Back, <%= User.find(session[:current_user]).alias %>!</h1>
+			<h2><%= link_to 'Click to view the latest Bieberfan conversation', twilio_log_path %></h2>
+      <h2>The current BieberFan number is <br>949-397-6547</h2>
+			<h2><%= link_to 'Log Out', logout_path %></h2>
+
 		<% else %>
 			<%= link_to 'Log in', login_path %>
-			<%= link_to 'Sign Up', new_user_path %> 
+			<%= link_to 'Sign Up', new_user_path %>
+			<%= link_to 'Home', welcome_index_path %>
 		<% end %>
 	</p>
 <%= yield %>

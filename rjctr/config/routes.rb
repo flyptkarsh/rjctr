@@ -11,10 +11,11 @@ Rails.application.routes.draw do
   get '/twilio_log' => 'twilio#log'
   get '/twilio_search' => 'twilio#search'
 
-  #Sessions 
+  # Sessions
   get '/login' => 'sessions#new'
-  get '/sessions' => 'sessions#create'
-  get '/logout' =>'sessions#destroy'
+  post '/sessions' => 'sessions#create'
+  get '/logout' => 'sessions#destroy'
+
 
  
 
