@@ -1,13 +1,15 @@
 Rails.application.routes.draw do
   
 
-  root to: 'sessions#new'
+  get 'welcome/index'
+
+  root 'welcome#index'
 
   resources :users
-
-  get '/twilio_process_sms' => 'twilio#process_sms'
+  
   get '/twilio_reply' => 'twilio#reply'
-  get '/twilio' => 'twilio#index'
+  get '/twilio_log' => 'twilio#log'
+  get '/twilio_search' => 'twilio#search'
 
   #Sessions 
   get '/login' => 'sessions#new'

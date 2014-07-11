@@ -1,0 +1,16 @@
+<!-- Loop over messages and print out a property for each one -->
+<% @client.account.messages.list.each do |message| %>
+	
+	<% if "#{message.from}" == "+19493976547" then sender = "Bieberfan" else sender = "RJCTEE" %> 
+	<% end %>
+	<% if "#{message.to}" == "+19493976547" then recipent = "Bieberfan" else recipent = "RJCTEE" %> 
+	<% end %>
+
+	<%= "To: #{recipent}" %> <br>
+	<%= "From: #{sender}" %> <br> 
+	<%= "#{message.body}" %> <br>
+	<hr>
+
+	
+
+<% end %>
