@@ -3,8 +3,8 @@ class TwilioController < ApplicationController
 	
 	def log
 		# Get your Account Sid and Auth Token from twilio.com/user/account
-		account_sid = ENV["ACCOUNT_SID"] 
-		auth_token = 	ENV["TOKEN"]
+		account_sid=ENV["ACCOUNT_SID"] 
+		auth_token=ENV["TOKEN"]
 		@client = Twilio::REST::Client.new account_sid, auth_token
 	end 
 
