@@ -37,6 +37,8 @@ gem 'pry-rails'
 
 gem 'rails_12factor', group: :production 
 
+gem 'figaro'
+
 # Use unicorn as the app server
 # gem 'unicorn'
 

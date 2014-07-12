@@ -8,16 +8,13 @@ class TwilioController < ApplicationController
 		@client = Twilio::REST::Client.new account_sid, auth_token
 	end 
 
-	def search 
-
-		@client = Twilio::REST::Client.new account_sid, auth_token
-	end 
-
 	def reply
 		#Twilio messages have a body, to, and from, section in params.  
 		body = params[:Body]
 		body.to_s.downcase!
 		#the response is based on the recieved text 
+		session["counter"] ||= 0
+  	sms_count = session["counter"]
 		case body 
 		 when "hey" 
 		 	message = "hello"
@@ -25,6 +22,8 @@ class TwilioController < ApplicationController
 		 	message = "hi"
 		 when "yo" 
 		 	message = "yo"
+		 when "hey!" 
+		 	message = "hello"
 		 when /girl/
 		 	message = "I am not a girl, I am a woman, Justin Bieber would know that"
 		 when /gurl/
@@ -39,6 +38,12 @@ class TwilioController < ApplicationController
 		 	message = "I am saving myself for Justin Bieber"
 		 when /no/ 
 		 	message = "why not OMG not cool"
+		 when /sheena/ 
+		 	message = "Hello Sheena!"
+		 when /stfu/ 
+		 	message = "OMG no, I will say whatever I feel like."
+		 when /stfu/ 
+		 	message = "JK, my love for Justin Bieber is not something to jk about."
 		 when /brb/ 
 		 	message = "Ok, I will just listen to Justin Bieber's new audiobook about his struggles till you are back"
 		 when /baby/ 
@@ -96,7 +101,8 @@ class TwilioController < ApplicationController
 		twiml = Twilio::TwiML::Response.new do |r|
 			r.Message "#{message}"
 		end
-		render text: twiml.text
+		session["counter"] += 1
+		twiml.text
 	end
 
 end
