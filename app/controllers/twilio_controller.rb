@@ -13,8 +13,6 @@ class TwilioController < ApplicationController
 		body = params[:Body]
 		body.to_s.downcase!
 		#the response is based on the recieved text 
-		session["counter"] ||= 0
-  	sms_count = session["counter"]
 		case body 
 		 when "hey" 
 		 	message = "hello"
@@ -101,7 +99,6 @@ class TwilioController < ApplicationController
 		twiml = Twilio::TwiML::Response.new do |r|
 			r.Message "#{message}"
 		end
-		session["counter"] += 1
 		twiml.text
 	end
 
