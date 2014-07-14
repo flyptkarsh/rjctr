@@ -39,6 +39,12 @@ gem 'rails_12factor', group: :production
 
 gem 'figaro'
 
+group :development do
+  gem 'rspec-rails'
+  gem 'rspec-collection_matchers'
+  gem 'shoulda-matchers', require: false
+end
+
 # Use unicorn as the app server
 # gem 'unicorn'
 
