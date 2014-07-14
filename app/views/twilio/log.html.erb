@@ -1,25 +1,24 @@
 
 <h2>Bieberfan Messages</h2>
-	<div class="container">
-		<!-- Loop over messages and print out a property for each one -->
-		<% @client.account.messages.list.each do |message| %>
 
-		<!-- this takes the phone numbers and makes them anonymous -->
-			
-			<% if "#{message.from}" == "+13478975509" then sender = "Bieberfan" else sender = "RJCTEE" %> 
-			<% end %>
-			<% if "#{message.to}" == "+13478975509" then recipent = "Bieberfan" else recipent = "RJCTEE" %> 
-			<% end %>
+<!-- Loop over messages and print out a property for each one -->
+<% @client.account.messages.list.each do |message| %>
 
-		<!-- This aligns the messages based on who sent them to make them easier to read.  -->
-			<% if sender == "Bieberfan" %>
-					<div class="bubble">
-					<%= "#{message.body}" %></div> 
-					</div>
-				<% else %> 
-					<div class="bubble bubble--alt"> 
-					<%= "#{message.body}" %>
-					</div>
-			 <% end %>
-		<% end %>
-	</div>
+<!-- this takes the phone numbers and makes them anonymous -->
+	
+	<% if "#{message.from}" == "+13478975509" then sender = "Bieberfan" else sender = "RJCTEE" %> 
+	<% end %>
+	<% if "#{message.to}" == "+13478975509" then recipent = "Bieberfan" else recipent = "RJCTEE" %> 
+	<% end %>
+
+<!-- This aligns the messages based on who sent them to make them easier to read.  -->
+	<% if sender == "Bieberfan" %>
+			<div class="bubble">
+			<%= "#{message.body}" %></div> 
+			</div>
+		<% else %> 
+			<div class="bubble bubble--alt"> 
+			<%= "#{message.body}" %>
+			</div>
+	 <% end %>
+<% end %>
