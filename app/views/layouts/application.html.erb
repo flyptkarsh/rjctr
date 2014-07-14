@@ -8,8 +8,8 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-<h1>RJCTR</h1>
 
+<h1>RJCTR</h1>
 	<p>
 		<% if session[:current_user] %> 
 			<h2>Ciao, <%= User.find(session[:current_user]).alias %> </h2>

@@ -2,8 +2,9 @@
 <%= link_to 'Submit a Screenshot', new_bestof_path %> <br>
 
 <% @bestofs.each do |bestof| %>
-  <%= bestof.comment %> <br>
+  <hr>
   <image src = "<%= bestof.image_url %>"> <br>
+  <%= bestof.comment %> <br>
   By <%= bestof.user.alias %> <br>
   <% if session[:current_user] == bestof.user.id %>
     <%= link_to 'Edit', edit_bestof_path(bestof) %>

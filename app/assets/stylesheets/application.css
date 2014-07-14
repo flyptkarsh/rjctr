@@ -14,12 +14,12 @@
  *= require_self
  */
 body {
-font: 400 3.5em/120% 'Just Another Hand', Helvetica, Sans-serif;
+font: 200 2em/120% 'Just Another Hand', Helvetica, Sans-serif;
 color: #333; 
 background-image: url("http://upload.wikimedia.org/wikipedia/commons/thumb/1/10/Sexy_Mouth_transparent.png/712px-Sexy_Mouth_transparent.png");
 background-repeat: no-repeat;
 padding-left:1cm;
-max-width: 800px;
+max-width: 500px;
 }
 
 div {
