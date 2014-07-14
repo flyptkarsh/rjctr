@@ -14,5 +14,37 @@
  *= require_self
  */
 body {
-font-family: 'Noteworthy'
+font: 400 3.5em/120% 'Just Another Hand', Helvetica, Sans-serif;
+color: #333; 
+background-image: url("http://upload.wikimedia.org/wikipedia/commons/thumb/1/10/Sexy_Mouth_transparent.png/712px-Sexy_Mouth_transparent.png");
+background-repeat: no-repeat;
+padding-left:1cm;
+max-width: 800px;
+}
+
+div {
+	background: rgba(248,248,255,.8);
+	padding: 10px
+}
+
+div.messages {
+	font-size: 50%;
+	background-color: rgba(0,0,100,.8);
+	margin: 0px auto 0px auto;
+}
+
+h1 {
+	text-align: center;
+	background-color: #ea1547;
+	font-style: bold;
+	color: white; 
+	padding: 20px;
+}
+h2 {
+	background: rgba(255,0,0,.5);
+	padding: 10px
+}
+h4 {
+	background-color: rgba(255,255,255,.6);
+	line-height:120%;
 }

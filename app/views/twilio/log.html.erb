@@ -1,3 +1,7 @@
+
+<div> 
+<h2>Bieberfan Messages</h2>
+
 <!-- Loop over messages and print out a property for each one -->
 <% @client.account.messages.list.each do |message| %>
 
@@ -9,14 +13,18 @@
 	<% end %>
 
 <!-- This aligns the messages based on who sent them to make them easier to read.  -->
+<div class='messages'>
 	<% if sender == "Bieberfan" %>
-	<div>  <%= "From: #{sender}" %> <br>
+	<div align="left">  <%= "#{sender}:" %>
 		<%= "#{message.body}" %>
 	</div>
+	<br>
 	<% else %> 
-	<div align="right">  <%= "From: #{sender}" %> <br>
-		<%= "#{message.body}" %>
+	<div align="right">  
+		<%= "#{message.body}" %> <%= ":#{sender}" %>
 	 </div>
+	 <br>
 	 <% end %>
-
+</div>
 <% end %>
+</div>

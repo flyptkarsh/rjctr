@@ -8,18 +8,24 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+<h1>RJCTR</h1>
+
 	<p>
 		<% if session[:current_user] %>
-
-			<h1>Welcome Back, <%= User.find(session[:current_user]).alias %>!</h1>
-			<h2><%= link_to 'Click to view the latest Bieberfan conversation', twilio_log_path %></h2>
-      <h2>The current BieberFan number is <br>+1 347-897-5509</h2>
-			<h2><%= link_to 'Log Out', logout_path %></h2>
+			<h2>Ciao, <%= User.find(session[:current_user]).alias.capitalize! %>!<br>
+				The BieberFan Number is,<br>+1 347-897-5509</h2>
+			<h4>
+				<%= link_to 'Log Out', logout_path %><br>
+				<%= link_to 'The Bieberfan Conversation', twilio_log_path %><br>
+				<%= link_to 'Home', welcome_index_path %><br>
+			</h4>
 
 		<% else %>
-			<%= link_to 'Log in', login_path %>
-			<%= link_to 'Sign Up', new_user_path %>
-			<%= link_to 'Home', welcome_index_path %>
+			<h4>
+			<%= link_to 'Log in', login_path %><br>
+			<%= link_to 'Sign Up', new_user_path %><br> 
+			<%= link_to 'Home', welcome_index_path %><br>
+			</h4>
 		<% end %>
 	</p>
 <%= yield %>

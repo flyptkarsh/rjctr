@@ -1,5 +1,8 @@
+<div>
 <h2>Edit User</h2>
-
+<% if @user.errors.full_messages.any? %>
+<% @user.errors.full_messages.each do |error_message| %>
+<%= error_message if @user.errors.full_messages.first == error_message %> <br>
 <%= form_for @user do |f| %>
 	<%= f.label :username %>
 	<%= f.text_field :username %>
@@ -10,4 +13,6 @@
 	<br>
 
 	<%= f.submit 'Update Info' %> 
+	
 <% end %> 
+</div>

@@ -1,11 +1,12 @@
 require 'twilio-ruby' 
 class TwilioController < ApplicationController
-	
 	def log
+		if !session[:current_user]
+			redirect_to welcome_index_path
+		end 
 		# Get your Account Sid and Auth Token from twilio.com/user/account
-		account_sid=ENV["ACCOUNT_SID"] 
-		auth_token=ENV["TOKEN"]
-		@client = Twilio::REST::Client.new account_sid, auth_token
+
+		@client = Twilio::REST::Client.new ENV["TWILIO_SID"] , ENV["TWILIO_TOKEN"]
 	end 
 
 	def reply
@@ -22,6 +23,8 @@ class TwilioController < ApplicationController
 		 	message = "yo"
 		 when "hey!" 
 		 	message = "hello"
+		 when "what is the meaning of life?"
+		 	message = "42"
 		 when /girl/
 		 	message = "I am not a girl, I am a woman, Justin Bieber would know that"
 		 when /gurl/
@@ -40,7 +43,7 @@ class TwilioController < ApplicationController
 		 	message = "Hello Sheena!"
 		 when /stfu/ 
 		 	message = "OMG no, I will say whatever I feel like."
-		 when /stfu/ 
+		 when /jk/ 
 		 	message = "JK, my love for Justin Bieber is not something to jk about."
 		 when /brb/ 
 		 	message = "Ok, I will just listen to Justin Bieber's new audiobook about his struggles till you are back"
@@ -58,8 +61,24 @@ class TwilioController < ApplicationController
 		 	message = "Nothing is more real than my love for Justin Bieber, I love his music. It is like Mozart except not boring n shit"
 		 when /omg/ 
 		 	message = "You don't even know what OMG is, when Justin got his new haircut I was like OMG, OMG, OMG, OMG, OMG, OMG, OMG, OMG, "
-		 when /suck/
-		 	message = "OMG nothing is as good as Justin Bieber"
+		 when /test/ 
+		 	message = "Of course is works"
+		 when / fuck justin/
+		 	message = "You are a monster, Justin Bieber is the best"
+		 when /yay/
+		 	message = "I know that is how I feel about Justin Bieber"
+		 when /sorry i suck/
+		 	message = "yeah you do, but Justin Bieber is awesome"
+		 when /taco/
+		 	message = "the only person getting in my taco is Justin Bieber" 
+		 when /damn/
+		 	message = "Yeah you better not insult Justin Bieber"
+		 when /eat shit/
+		 	message = "I think Justin Bieber is a vegatarian, is that vegatarian?"
+		 when /dick/ 
+		 	message = "I don't go for the little ones, unless it is Justin Bieber's" 
+		 when /cock/ 
+		 	message = "Justin Bieber is like 10 inches"
 		 when /what/
 		 	message = "Were you not listening to me? Justin would listen to me"
 		 when /where r/ 
@@ -76,6 +95,8 @@ class TwilioController < ApplicationController
 		 	message = "Never say anything bad about Justin, he is like Jesus without that ugly beard"
 		 when /rap/ 
 		 	message = "Justin Bieber is better than Tupac"
+		 when /suck/
+		 	message = "OMG nothing is as good as Justin Bieber"
 		 when /crazy/
 		 	message = "OMG that is totally something Justin would say, I am saving myself for him"
 		 when /me/ 
@@ -93,13 +114,16 @@ class TwilioController < ApplicationController
 		 when /help/
 		 	message = "end of the help line, you are not special"
 		 else 
-		 	message = "OMG that is totally something Justin Bieber would say!"
+		 	random_responses= ["OMG that is totally something Justin Bieber would say!", "Really? I wonder what Justin would think", "Tell me more, I am not sure what you mean.", "Are you kidding?", "Really, that is all you have to say?", "Just think, What would Justin Bieber do and then text me back"]
+		 	message = random_responses.sample 
 		 end 
+		 # this delays sending the text in order to seem more believable
+		 sleep(3)
 		#this interfaces with the API
 		twiml = Twilio::TwiML::Response.new do |r|
 			r.Message "#{message}"
 		end
-		twiml.text
+		render text: twiml.text
 	end
 
 end
