@@ -1,0 +1,10 @@
+<h2>Best of BieberFan</h2>
+<%= link_to 'Submit a Screenshot', new_bestof_path %> <br>
+
+<% @bestofs.each do |bestof| %>
+  <%= bestof.comment %> <br>
+  <img src ="<%= bestof.image_url %>"> <br>
+  By <%= bestof.user.alias %> <br>
+  <hr>
+  
+<% end %>

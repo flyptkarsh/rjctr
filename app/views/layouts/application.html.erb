@@ -12,11 +12,11 @@
 
 	<p>
 		<% if session[:current_user] %>
-			<h2>Ciao, <%= User.find(session[:current_user]).alias.capitalize! %>!<br>
-				The BieberFan Number is,<br>+1 347-897-5509</h2>
+			<h2>Ciao, <%= User.find(session[:current_user]).alias.capitalize! %>!</h2>
 			<h4>
 				<%= link_to 'Log Out', logout_path %><br>
-				<%= link_to 'The Bieberfan Conversation', twilio_log_path %><br>
+				<%= link_to	'Best of Bieberfan', bestofs_path %><br> 
+				<%= link_to 'Latest Bieberfan Conversation', twilio_log_path %><br>
 				<%= link_to 'Home', welcome_index_path %><br>
 			</h4>
 

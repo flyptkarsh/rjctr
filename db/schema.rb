@@ -11,10 +11,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140710214625) do
+ActiveRecord::Schema.define(version: 20140714144223) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "bestofs", force: true do |t|
+    t.text     "comment"
+    t.text     "image_url"
+    t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "twilios", force: true do |t|
     t.string   "from"

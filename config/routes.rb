@@ -5,7 +5,7 @@ Rails.application.routes.draw do
 
   root 'welcome#index'
 
-  resources :users
+  resources :users, :bestofs
   
   get '/twilio_reply' => 'twilio#reply'
   get '/twilio_log' => 'twilio#log'
