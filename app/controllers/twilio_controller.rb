@@ -33,8 +33,14 @@ class TwilioController < ApplicationController
 		 	message = "OMG yeah totally, like yeah"
 		 when /hook up/
 		 	message = "If you get me front row seats at the Justin Bieber concert maybe"
-		 when /fuck/
-		 	message = "Stop pushing me, I am am still waiting for Justin"
+		 when / fuck justin/
+		 	message = "You are a monster, Justin Bieber is the best"
+		 when /eat shit/
+		 	message = "I think Justin Bieber is a vegatarian, is that vegatarian?"
+		 when /dick/ 
+		 	message = "I don't go for the little ones, unless it is Justin Bieber's" 
+		 when /cock/ 
+		 	message = "Justin Bieber is like 10 inches longer than you"
 		 when /dtf/
 		 	message = "I am saving myself for Justin Bieber"
 		 when /no/ 
@@ -63,8 +69,6 @@ class TwilioController < ApplicationController
 		 	message = "You don't even know what OMG is, when Justin got his new haircut I was like OMG, OMG, OMG, OMG, OMG, OMG, OMG, OMG, "
 		 when /test/ 
 		 	message = "Of course is works"
-		 when / fuck justin/
-		 	message = "You are a monster, Justin Bieber is the best"
 		 when /yay/
 		 	message = "I know that is how I feel about Justin Bieber"
 		 when /sorry i suck/
@@ -73,12 +77,6 @@ class TwilioController < ApplicationController
 		 	message = "the only person getting in my taco is Justin Bieber" 
 		 when /damn/
 		 	message = "Yeah you better not insult Justin Bieber"
-		 when /eat shit/
-		 	message = "I think Justin Bieber is a vegatarian, is that vegatarian?"
-		 when /dick/ 
-		 	message = "I don't go for the little ones, unless it is Justin Bieber's" 
-		 when /cock/ 
-		 	message = "Justin Bieber is like 10 inches"
 		 when /what/
 		 	message = "Were you not listening to me? Justin would listen to me"
 		 when /where r/ 
@@ -91,8 +89,6 @@ class TwilioController < ApplicationController
 		 	message = "OMG I wish I was hot enough to be Justin Bieber's girlfriend"
 		 when /meet/
 		 	message = "OMG we should go to the Bieber concert next week, tickets are only 500$"
-		 when /Bieber/ 
-		 	message = "Never say anything bad about Justin, he is like Jesus without that ugly beard"
 		 when /rap/ 
 		 	message = "Justin Bieber is better than Tupac"
 		 when /suck/
@@ -113,6 +109,10 @@ class TwilioController < ApplicationController
 		 	message = "I am only Justin Bieber's biggest fan, last year he tweeted at me.."
 		 when /help/
 		 	message = "end of the help line, you are not special"
+		 when /fuck/
+		 	message = "Stop pushing me, I am am still waiting for Justin"
+		 when /bieber/ 
+		 	message = "Never say anything bad about Justin, he is like Jesus without that ugly beard"
 		 else 
 		 	random_responses= ["OMG that is totally something Justin Bieber would say!", "Really? I wonder what Justin would think", "Tell me more, I am not sure what you mean.", "Are you kidding?", "Really, that is all you have to say?", "Just think, What would Justin Bieber do and then text me back"]
 		 	message = random_responses.sample 

@@ -20,6 +20,25 @@ class BestofsController < ApplicationController
     end
   end
 
+  def edit 
+    @bestof = Bestof.find(params[:id])
+  end 
+
+  def destroy
+    @bestof = Bestof.find(params[:id])
+    @bestof.destroy
+    redirect_to bestofs_path
+  end
+
+  def update 
+    @bestof = Bestof.find(params[:id])
+    if @bestof.update(bestof_params)
+      redirect_to bestofs_path 
+    else
+      render :edit 
+    end 
+  end 
+
   private
   def bestof_params
     params.require(:bestof).permit(:image_url, :comment)
