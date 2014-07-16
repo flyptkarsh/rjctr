@@ -1,7 +1,7 @@
 require 'twilio-ruby' 
 class TwilioController < ApplicationController
 	def log
-		# Get your Account Sid and Auth Token from twilio.com/user/account
+		# Account Sid and Auth Token from twilio.com/user/account
 		@client = Twilio::REST::Client.new ENV["TWILIO_SID"] , ENV["TWILIO_TOKEN"]
 	end 
 
@@ -9,7 +9,7 @@ class TwilioController < ApplicationController
 		#Twilio messages have a body, to, and from, section in params.  
 		body = params[:Body]
 		body.to_s.downcase!
-		#the response is based on the recieved text 
+		#the response is based on the received text 
 		case body 
 		 when "hey" 
 		 	message = "hello"
@@ -32,7 +32,7 @@ class TwilioController < ApplicationController
 		 when /justin/
 		 	message = "You are a monster, Justin Bieber is the best"
 		 when /eat/ 
-		 	message = "I think Justin Bieber is a vegatarian, is that vegatarian?"
+		 	message = "I think Justin Bieber is a vegetarian, is that vegetarian?"
 		 when /dick/ 
 		 	message = "I don't go for the little ones, unless it is Justin Bieber's" 
 		 when /cock/ 
@@ -46,7 +46,7 @@ class TwilioController < ApplicationController
 		 when /jk/ 
 		 	message = "JK, my love for Justin Bieber is not something to jk about."
 		 when /brb/ 
-		 	message = "OMG Ok, I will just listen to Justin Bieber's new audiobook about his struggles till you are back"
+		 	message = "OMG Ok, I will just listen to Justin Bieber's new audio-book about his struggles till you are back"
 		 when /baby/ 
 		 	message = "OMG Ok, I don't even think you know all the works to 'Baby', don't use that word"
 		 when /driv/ 
@@ -112,7 +112,7 @@ class TwilioController < ApplicationController
 		 		]
 		 	message = random_responses.sample 
 		 end 
-		 # this delays sending the text in order to seem more believable
+		 #this delays sending the text in order to seem more believable
 		 sleep(3)
 		#this interfaces with the API
 		twiml = Twilio::TwiML::Response.new do |r|
