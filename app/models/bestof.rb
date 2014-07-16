@@ -1,4 +1,4 @@
 class Bestof < ActiveRecord::Base
   belongs_to :user
-  validates :image_url, presence: true
+  validates_presence_of :image_url
 end

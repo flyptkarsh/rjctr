@@ -1,9 +1,6 @@
 require 'twilio-ruby' 
 class TwilioController < ApplicationController
 	def log
-		if !session[:current_user]
-			redirect_to welcome_index_path
-		end 
 		# Get your Account Sid and Auth Token from twilio.com/user/account
 		@client = Twilio::REST::Client.new ENV["TWILIO_SID"] , ENV["TWILIO_TOKEN"]
 	end 
@@ -32,9 +29,9 @@ class TwilioController < ApplicationController
 		 	message = "OMG yeah totally, like yeah"
 		 when /hook up/
 		 	message = "If you get me front row seats at the Justin Bieber concert maybe"
-		 when /fuck/ && /justin/
+		 when /justin/
 		 	message = "You are a monster, Justin Bieber is the best"
-		 when /eat/ && /shit/
+		 when /eat/ 
 		 	message = "I think Justin Bieber is a vegatarian, is that vegatarian?"
 		 when /dick/ 
 		 	message = "I don't go for the little ones, unless it is Justin Bieber's" 
@@ -102,12 +99,17 @@ class TwilioController < ApplicationController
 		 	message = "OMG I heard just release an new video and I had to see it"
 		 when /who/ 
 		 	message = "OMG I am only Justin Bieber's biggest fan, last year he tweeted at me.."
-		 when /fuck/
-		 	message = "Stop pushing me, I am am still waiting for Justin"
 		 when /bieber/ 
 		 	message = "Never say anything bad about Justin, he is like Jesus without that ugly beard"
 		 else 
-		 	random_responses= ["OMG that is totally something Justin Bieber would say!", "Really? I wonder what Justin would think", "Tell me more, I am not sure what you mean.", "Are you kidding?", "Really, that is all you have to say?", "Just think, What would Justin Bieber do and then text me back"]
+		 	random_responses= [
+		 		"OMG that is totally something Justin Bieber would say!", 
+		 		"Really? I wonder what Justin would think", 
+		 		"Tell me more, I am not sure what you mean.", 
+		 		"Are you kidding?", 
+		 		"Really, that is all you have to say?", 
+		 		"Just think, What would Justin Bieber do and then text me back"
+		 		]
 		 	message = random_responses.sample 
 		 end 
 		 # this delays sending the text in order to seem more believable

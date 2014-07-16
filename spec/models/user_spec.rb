@@ -1,3 +1,13 @@
+require "rails_helper"
+
 describe User do 
-let(:patrick) {User.new( username: "SuperPatrick", alias: "SuperP", password: "bkk", password_conformation: "bkk")} 
+	it { should validate_presence_of (:username)}
+	it { should validate_presence_of (:alias)}
+
+	it { should validate_uniqueness_of (:username)}
+
+	it { should validate_confirmation_of (:password)}
+
+	it { should have_many(:bestofs).dependent(:destroy) }
+
 end 
